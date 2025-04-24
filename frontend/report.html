@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Expense Report - Finance Tracker</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/report.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+  <!-- ✅ Header -->
+  <header style="background: #0077cc; padding: 15px; color: white; text-align: center;">
+    <h2 style="margin: 0;">💰 Finance Tracker</h2>
+    <nav style="margin-top: 10px;">
+      <a href="dashboard.html" style="color: white; margin: 0 10px;">Dashboard</a>
+      <a href="account.html" style="color: white; margin: 0 10px;">Account Setup</a>
+      <a href="report.html" style="color: white; margin: 0 10px;">Report</a>
+      <a href="#" onclick="logout()" style="color: white; margin: 0 10px;">Logout</a>
+    </nav>
+  </header>
+
+  <!-- 📊 Report Content -->
+  <h2 style="margin-top: 30px;">Expense Report</h2>
+
+  <div style="margin-top: 20px;">
+    <label for="filter">Filter:</label>
+    <select id="filter">
+      <option value="month">Monthly</option>
+      <option value="year">Yearly</option>
+    </select>
+  </div>
+
+  <!-- Wrap all 3 charts like this in report.html -->
+  <div class="chart-row">
+    <div class="chart-container">
+      <canvas id="budgetChart"></canvas>
+    </div>
+    <div class="chart-container">
+      <canvas id="trendChart"></canvas>
+    </div>
+  </div>
+  
+  <div class="chart-row full-width">
+    <canvas id="weeklyChart"></canvas>
+  </div>
+  
+
+  <div id="summary">
+    <h3>Summary</h3>
+    <p><strong>Total Budget:</strong> ₹<span id="totalBudget">0</span></p>
+    <p><strong>Total Expenses:</strong> ₹<span id="totalSpent">0</span></p>
+    <p><strong>Remaining:</strong> ₹<span id="remaining">0</span></p>
+  </div>
+
+  <div id="expenseList">
+    <h3>Expense Breakdown</h3>
+    <ul id="expenseItems"></ul>
+  </div>
+
+  <!-- ✅ Footer -->
+  <footer style="background: #f0f0f0; padding: 12px; text-align: center; color: #666; margin-top: 50px;">
+    <p>&copy; 2025 Finance Tracker. All rights reserved.</p>
+  </footer>
+
+  <!-- ✅ Scripts -->
+  <script src="js/report.js"></script>
+  <script>
+    function logout() {
+      localStorage.removeItem('token');
+      alert("Logged out!");
+      window.location.href = "index.html";
+    }
+  </script>
+</body>
+</html>

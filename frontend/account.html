@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Account Setup - Finance Tracker</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ✅ Header -->
+  <header style="background: #0077cc; padding: 15px; color: white; text-align: center; width: 100%;">
+    <h2 style="margin: 0;">💰 Finance Tracker</h2>
+    <nav style="margin-top: 10px;">
+      <a href="dashboard.html" style="color: white; margin: 0 10px;">Dashboard</a>
+      <a href="account.html" style="color: white; margin: 0 10px;">Account Setup</a>
+      <a href="report.html" style="color: white; margin: 0 10px;">Report</a>
+      <a href="#" onclick="logout()" style="color: white; margin: 0 10px;">Logout</a>
+    </nav>
+  </header>
+
+  <!-- 👤 Account Setup Form -->
+  <h2 style="margin-top: 30px;">Account Setup</h2>
+
+  <form id="accountForm" style="max-width: 400px; margin: auto; margin-top: 20px;">
+    <label for="month">Select Month:</label>
+    <select id="month" required>
+      <option value="" disabled selected>-- Select Month --</option>
+      <option value="January">January</option>
+      <option value="February">February</option>
+      <option value="March">March</option>
+      <option value="April">April</option>
+      <option value="May">May</option>
+      <option value="June">June</option>
+      <option value="July">July</option>
+      <option value="August">August</option>
+      <option value="September">September</option>
+      <option value="October">October</option>
+      <option value="November">November</option>
+      <option value="December">December</option>
+    </select>
+
+    <input type="number" id="income" placeholder="Monthly Income (₹)" required />
+    <input type="number" id="budget" placeholder="Planned Budget (₹)" required />
+    <button type="submit">Save</button>
+  </form>
+
+  <!-- ✅ Footer -->
+  <footer style="background: #f0f0f0; padding: 12px; text-align: center; color: #666; margin-top: 50px;">
+    <p>&copy; 2025 Finance Tracker. All rights reserved.</p>
+  </footer>
+
+  <!-- ✅ Scripts -->
+  <script src="js/account.js"></script>
+  <script>
+    function logout() {
+      localStorage.removeItem('token');
+      alert("Logged out!");
+      window.location.href = "index.html";
+    }
+  </script>
+</body>
+</html>

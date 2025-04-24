@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard - Finance Tracker</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header style="background: #0077cc; padding: 15px; color: white; text-align: center; width: 100%;">
+    <h2 style="margin: 0;">💰 Finance Tracker</h2>
+    <nav style="margin-top: 10px;">
+      <a href="dashboard.html" style="color: white; margin: 0 10px;">Dashboard</a>
+      <a href="account.html" style="color: white; margin: 0 10px;">Account Setup</a>
+      <a href="report.html" style="color: white; margin: 0 10px;">Report</a>
+      <a href="#" onclick="logout()" style="color: white; margin: 0 10px;">Logout</a>
+    </nav>
+  </header>
+
+  <!-- Content -->
+  <h2 style="margin-top: 30px;">Expense Dashboard</h2>
+
+  <div id="budgetSummary" style="max-width: 500px; margin: auto;"></div>
+
+  <form id="expenseForm" style="max-width: 400px; margin: auto; margin-top: 20px;">
+    <input type="text" id="payment_method" placeholder="Payment Method (e.g., UPI, Cash)" required />
+    <input type="number" id="amount" placeholder="Amount" required />
+    <input type="text" id="payment_id" placeholder="Payment ID" required />
+    <input type="text" id="description" placeholder="Description" required />
+    <input type="date" id="date" required />
+    <button type="submit">Add Expense</button>
+  </form>
+
+  <!-- Footer -->
+  <footer style="background: #f0f0f0; padding: 12px; text-align: center; color: #666; margin-top: 50px;">
+    <p>&copy; 2025 Finance Tracker. All rights reserved.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/dashboard.js"></script>
+  <script>
+    function logout() {
+      localStorage.removeItem('token');
+      alert("Logged out!");
+      window.location.href = "index.html";
+    }
+  </script>
+</body>
+</html>
